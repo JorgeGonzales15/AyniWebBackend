@@ -1,6 +1,6 @@
 namespace AyniWebBackend.Ayni.Domain.Repositories;
 
-public class IUnitOfWork
+public interface IUnitOfWork
 {
-    
+    Task CompleteAsync();
 }

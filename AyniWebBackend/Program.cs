@@ -1,3 +1,8 @@
+using AyniWebBackend.Ayni.Domain.Repositories;
+using AyniWebBackend.Shared.Persistence.Contexts;
+using AyniWebBackend.Shared.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,15 +12,55 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var misReglasCros = "ReglasCors";
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy(name: misReglasCros,
+        builder =>
+        {
+            builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+});
+
+var connectionString = 
+    builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<AppDbContext>(
+    options => options.UseMySQL(connectionString)
+        .LogTo(Console.WriteLine, LogLevel.Information)
+        .EnableSensitiveDataLogging()
+        .EnableDetailedErrors());
+// Add lowercase routes
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
+
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+
+
+
+
+
+
+// AutoMapper Configuration
+builder.Services.AddAutoMapper(
+    typeof(AyniWebBackend.Ayni.Mapping.ModelToResourceProfile), 
+    typeof(AyniWebBackend.Ayni.Mapping.ResourceToModelProfile));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+using (var scope = app.Services.CreateScope())
+using (var context = scope.ServiceProvider.GetService<AppDbContext>())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    context.Database.EnsureCreated();
 }
 
+
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseCors(misReglasCros);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
