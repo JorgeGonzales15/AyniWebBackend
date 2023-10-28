@@ -1,4 +1,7 @@
 using AyniWebBackend.Ayni.Domain.Repositories;
+using AyniWebBackend.Ayni.Domain.Services;
+using AyniWebBackend.Ayni.Persistence.Repositories;
+using AyniWebBackend.Ayni.Services;
 using AyniWebBackend.Shared.Persistence.Contexts;
 using AyniWebBackend.Shared.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -32,7 +35,8 @@ builder.Services.AddDbContext<AppDbContext>(
 // Add lowercase routes
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-
+builder.Services.AddScoped<ICropRepository, CropRepository>();
+builder.Services.AddScoped<ICropService, CropService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
