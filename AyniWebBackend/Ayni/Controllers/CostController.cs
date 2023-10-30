@@ -21,7 +21,8 @@ public class CostController : ControllerBase
         _costService = costService;
         _mapper = mapper;
     }
-    
+
+    //methods
     [HttpGet]
     public async Task<IEnumerable<CostResource>> GetAllAsync()
     {
