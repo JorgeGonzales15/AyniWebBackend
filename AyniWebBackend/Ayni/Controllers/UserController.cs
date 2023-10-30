@@ -21,7 +21,8 @@ public class UserController : ControllerBase
         _userService = userService;
         _mapper = mapper;
     }
-    
+
+// METHODS
     [HttpGet]
     public async Task<IEnumerable<UserResource>> GetAllAsync()
     {
