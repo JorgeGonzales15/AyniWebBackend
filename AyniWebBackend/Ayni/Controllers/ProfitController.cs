@@ -21,7 +21,8 @@ public class ProfitController : ControllerBase
         _profitService = profitService;
         _mapper = mapper;
     }
-    
+
+//methods
     [HttpGet]
     public async Task<IEnumerable<ProfitResource>> GetAllAsync()
     {
