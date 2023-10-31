@@ -23,6 +23,8 @@ public class CropsController : ControllerBase
         _mapper = mapper;
     }
 
+    //methods
+
     [HttpGet]
     public async Task<IEnumerable<CropResource>> GetAllAsync()
     {
