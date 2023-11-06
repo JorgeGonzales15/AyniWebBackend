@@ -8,7 +8,20 @@ public class ResourceToModelProfile : Profile
 {
     public ResourceToModelProfile()
     {
+
         CreateMap<SaveUserResource, User>();
  
+
+
+        CreateMap<SaveProfitResource, Profit>();
+
+
+        CreateMap<SaveProductResource, Product>();
+        CreateMap<SaveOrderResource, Order>();
+
+        CreateMap<SaveCropResource, Crop>();
+        CreateMap<SaveCostResource, Cost>();
+
+
     }
 }
