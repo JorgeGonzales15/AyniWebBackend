@@ -39,7 +39,8 @@ builder.Services.AddScoped<ICropRepository, CropRepository>();
 builder.Services.AddScoped<ICropService, CropService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+builder.Services.AddScoped<ICostRepository, CostRepository>();
+builder.Services.AddScoped<ICostService, CostService>();
 
 
 
