@@ -35,7 +35,8 @@ builder.Services.AddDbContext<AppDbContext>(
 // Add lowercase routes
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-
+builder.Services.AddScoped<ICropRepository, CropRepository>();
+builder.Services.AddScoped<ICropService, CropService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICostRepository, CostRepository>();
