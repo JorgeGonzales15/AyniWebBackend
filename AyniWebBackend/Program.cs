@@ -37,8 +37,18 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
+builder.Services.AddScoped<ICropRepository, CropRepository>();
+builder.Services.AddScoped<ICropService, CropService>();
+
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICostRepository, CostRepository>();
+builder.Services.AddScoped<ICostService, CostService>();
 
 builder.Services.AddScoped<IProfitService, ProfitService>();
 builder.Services.AddScoped<IProfitRepository, ProfitRepository>();
