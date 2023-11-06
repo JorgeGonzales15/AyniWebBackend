@@ -9,6 +9,9 @@ public class ModelToResourceProfile : Profile
     public ModelToResourceProfile()
     {
 
+        CreateMap<User, UserResource>();
+
+
         CreateMap<Profit, ProfitResource>();
 
 

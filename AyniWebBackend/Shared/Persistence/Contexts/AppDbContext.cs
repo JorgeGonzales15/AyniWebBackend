@@ -10,7 +10,11 @@ public class AppDbContext : DbContext
     {
     }
     
+
+    public DbSet<User> Users { get; set; }
+
     public DbSet<Profit> Profits { get; set; }
+
 
     public DbSet<Order> Orders { get; set; }
     public DbSet<Product> Products { get; set; }
@@ -24,6 +28,14 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+
+        builder.Entity<User>().ToTable("Users");
+        builder.Entity<User>().HasKey(p => p.Id);
+        builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<User>().Property(p => p.Name).IsRequired().HasMaxLength(30);
+        builder.Entity<User>().Property(p=>p.Email).IsRequired().HasMaxLength(50);
+        builder.Entity<User>().Property(p=>p.Password).IsRequired().HasMaxLength(50);
+
         
 
         builder.Entity<Product>().ToTable("Products");
@@ -90,6 +102,7 @@ public class AppDbContext : DbContext
         builder.Entity<Profit>().Property(p => p.NameP).IsRequired().HasMaxLength(50);
         builder.Entity<Profit>().Property(p => p.DescriptionP).HasMaxLength(120);
         builder.Entity<Profit>().Property(p => p.AmountP).IsRequired();
+
 
         builder.Entity<Crop>().ToTable("Crops");
         builder.Entity<Crop>().HasKey(p => p.Id);
