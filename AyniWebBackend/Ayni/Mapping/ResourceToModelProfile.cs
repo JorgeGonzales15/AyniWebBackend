@@ -9,11 +9,15 @@ public class ResourceToModelProfile : Profile
     public ResourceToModelProfile()
     {
 
+        CreateMap<SaveProfitResource, Profit>();
+
+
         CreateMap<SaveProductResource, Product>();
         CreateMap<SaveOrderResource, Order>();
 
         CreateMap<SaveCropResource, Crop>();
         CreateMap<SaveCostResource, Cost>();
+
 
     }
 }

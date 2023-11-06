@@ -9,11 +9,15 @@ public class ModelToResourceProfile : Profile
     public ModelToResourceProfile()
     {
 
+        CreateMap<Profit, ProfitResource>();
+
+
         CreateMap<Product, ProductResource>();
         CreateMap<Order, OrderResource>();
 
         CreateMap<Crop, CropResource>();
         CreateMap<Cost, CostResource>();
+
 
     }
 }

@@ -50,7 +50,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ICostRepository, CostRepository>();
 builder.Services.AddScoped<ICostService, CostService>();
 
-
+builder.Services.AddScoped<IProfitService, ProfitService>();
+builder.Services.AddScoped<IProfitRepository, ProfitRepository>();
 
 
 

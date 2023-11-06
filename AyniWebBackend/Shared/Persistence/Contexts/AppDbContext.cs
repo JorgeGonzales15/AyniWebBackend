@@ -9,6 +9,8 @@ public class AppDbContext : DbContext
     public AppDbContext(DbContextOptions options) : base(options)
     {
     }
+    
+    public DbSet<Profit> Profits { get; set; }
 
     public DbSet<Order> Orders { get; set; }
     public DbSet<Product> Products { get; set; }
@@ -76,6 +78,18 @@ public class AppDbContext : DbContext
             .WithOne(p => p.User)
             .HasForeignKey(p => p.UserId);
 
+        builder.Entity<User>()
+            .HasMany(p => p.Profits)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserId);
+
+
+        builder.Entity<Profit>().ToTable("Profits");
+        builder.Entity<Profit>().HasKey(p => p.Id);
+        builder.Entity<Profit>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Profit>().Property(p => p.NameP).IsRequired().HasMaxLength(50);
+        builder.Entity<Profit>().Property(p => p.DescriptionP).HasMaxLength(120);
+        builder.Entity<Profit>().Property(p => p.AmountP).IsRequired();
 
         builder.Entity<Crop>().ToTable("Crops");
         builder.Entity<Crop>().HasKey(p => p.Id);
@@ -93,6 +107,7 @@ public class AppDbContext : DbContext
             .HasMany(p => p.Crops)
             .WithOne(p => p.User)
             .HasForeignKey(p => p.UserId);
+
 
         builder.UseSnakeCaseNamingConvention();
     }
