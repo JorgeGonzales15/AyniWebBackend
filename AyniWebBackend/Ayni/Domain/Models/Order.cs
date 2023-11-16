@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Domain.Models;
+
 namespace AyniWebBackend.Ayni.Domain.Models;
 
 public class Order
@@ -10,7 +12,7 @@ public class Order
     public string PaymentMethod { get; set; }
     
     public int ProductId { get; set; }
-    //public Product Product { get; set; }
+    public Product Product { get; set; }
     public int UserId { get; set; }
-    //public User User { get; set; }
+    public User User { get; set; }
 }
