@@ -56,6 +56,8 @@ public class AppDbContext : DbContext
         builder.Entity<Order>().Property(p => p.TotalPrice).IsRequired();
         builder.Entity<Order>().Property(p => p.PaymentMethod).IsRequired().HasMaxLength(50);
         
+
+//relationships
         builder.Entity<User>()
             .HasMany(p => p.Orders )
             .WithOne(p => p.User)
