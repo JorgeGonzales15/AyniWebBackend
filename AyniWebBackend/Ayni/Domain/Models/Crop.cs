@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Domain.Models;
+
 namespace AyniWebBackend.Ayni.Domain.Models;
 
 public class Crop
@@ -19,6 +21,6 @@ public class Crop
     public string ImageUrl { get; set; }
 
 
-    //public int UserId { get; set; }
-    //public User User { get; set; }
+    public int UserId { get; set; }
+    public User User { get; set; }
 }
