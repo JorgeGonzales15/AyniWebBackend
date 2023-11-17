@@ -16,6 +16,7 @@ public class OrderRepository : BaseRepository, IOrderRepository
     {
         return await _context.Orders
             .Include(p => p.User)
+            .Include(p=>p.Product)
             .ToListAsync();
     }
 
@@ -28,7 +29,9 @@ public class OrderRepository : BaseRepository, IOrderRepository
     {
         return await _context.Orders
             .Include(p => p.User)
+            .Include(p=>p.Product)
             .FirstOrDefaultAsync(p => p.Id == orderId);
+
     }
 
     public async Task<IEnumerable<Order>> FindByUserIdAsync(int userId)
