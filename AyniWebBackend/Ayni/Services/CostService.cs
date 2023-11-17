@@ -41,7 +41,7 @@ public class CostService : ICostService
         var existingCostWithTitle = await 
             _costRepository.FindByTitleAsync(cost.Name);
         if (existingCostWithTitle != null)
-            return new CostResponse("Crop title already exists.");
+            return new CostResponse("Crop name already exists.");
         try
         {
             // Add Tutorial
@@ -56,7 +56,7 @@ public class CostService : ICostService
         catch (Exception e)
         {
             // Error Handling
-            return new CostResponse($"An error occurred when saving the category: {e.Message}");
+            return new CostResponse($"An error occurred when saving the costs: {e.Message}");
         }
     }
 
@@ -67,7 +67,7 @@ public class CostService : ICostService
  
         // Validate Tutorial
         if (existingCost == null)
-            return new CostResponse("Tutorial not found.");
+            return new CostResponse("Cost not found.");
  
         // Modify Fields
         existingCost.Name = cost.Name;
@@ -84,7 +84,7 @@ public class CostService : ICostService
         catch (Exception e)
         {
             // Error Handling
-            return new CostResponse($"An error occurred when updating the category: {e.Message}");
+            return new CostResponse($"An error occurred when updating the cost: {e.Message}");
         }
     }
 
@@ -95,7 +95,7 @@ public class CostService : ICostService
  
         // Validate Tutorial
         if (existingCost == null)
-            return new CostResponse("Tutorial not found.");
+            return new CostResponse("Cost not found.");
  
         try
         {
@@ -107,7 +107,7 @@ public class CostService : ICostService
         catch (Exception e)
         {
             // Error Handling
-            return new CostResponse($"An error occurred when deleting the category: {e.Message}");
+            return new CostResponse($"An error occurred when deleting the cost: {e.Message}");
         }
     }
 }

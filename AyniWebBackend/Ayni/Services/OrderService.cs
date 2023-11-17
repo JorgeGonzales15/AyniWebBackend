@@ -52,7 +52,7 @@ public class OrderService : IOrderService
         catch (Exception e)
         {
             // Error Handling
-            return new OrderResponse($"An error occurred when saving the category: {e.Message}");
+            return new OrderResponse($"An error occurred when saving the order: {e.Message}");
         }
     }
 
@@ -63,7 +63,7 @@ public class OrderService : IOrderService
  
         // Validate Tutorial
         if (existingOrder == null)
-            return new OrderResponse("Tutorial not found.");
+            return new OrderResponse("Order not found.");
  
         // Modify Fields
         existingOrder.Description = order.Description;
@@ -86,7 +86,7 @@ public class OrderService : IOrderService
         catch (Exception e)
         {
             // Error Handling
-            return new OrderResponse($"An error occurred when updating the category: {e.Message}");
+            return new OrderResponse($"An error occurred when updating the order: {e.Message}");
         }
     }
 
@@ -97,7 +97,7 @@ public class OrderService : IOrderService
  
         // Validate Tutorial
         if (existingOrder == null)
-            return new OrderResponse("Tutorial not found.");
+            return new OrderResponse("Order not found.");
  
         try
         {
@@ -109,7 +109,7 @@ public class OrderService : IOrderService
         catch (Exception e)
         {
             // Error Handling
-            return new OrderResponse($"An error occurred when deleting the category: {e.Message}");
+            return new OrderResponse($"An error occurred when deleting the order: {e.Message}");
         }
     }
 }

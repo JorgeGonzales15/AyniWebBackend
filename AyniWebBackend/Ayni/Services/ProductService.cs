@@ -33,7 +33,7 @@ public class ProductService : IProductService
         }
         catch (Exception e)
         {
-            return new ProductResponse($"An error occurred when saving the user: {e.Message}");
+            return new ProductResponse($"An error occurred when saving the product: {e.Message}");
         }
     }
 
@@ -41,7 +41,7 @@ public class ProductService : IProductService
     {
         var existingProduct = await _productRepository.FindByIdAsync(productId);
         if (existingProduct == null)
-            return new ProductResponse("User not found");
+            return new ProductResponse("Product not found");
         existingProduct.Name = product.Name;
         existingProduct.Description = product.Description;
         existingProduct.UnitPrice = product.UnitPrice;
@@ -57,7 +57,7 @@ public class ProductService : IProductService
         }
         catch (Exception e)
         {
-            return new ProductResponse($"An error occurred when updating the user: {e.Message}");
+            return new ProductResponse($"An error occurred when updating the product: {e.Message}");
         }
     }
 
@@ -65,7 +65,7 @@ public class ProductService : IProductService
     {
         var existingProduct = await _productRepository.FindByIdAsync(productId);
         if (existingProduct == null)
-            return new ProductResponse("User not found");
+            return new ProductResponse("Product not found");
         try
         {
             _productRepository.Remove(existingProduct);
@@ -75,7 +75,7 @@ public class ProductService : IProductService
         }
         catch (Exception e)
         {
-            return new ProductResponse($"An error occurred when deleting the user: {e.Message}");
+            return new ProductResponse($"An error occurred when deleting the product: {e.Message}");
         }
     }
 }

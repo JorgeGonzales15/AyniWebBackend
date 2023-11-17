@@ -41,7 +41,7 @@ public class ProfitService : IProfitService
         var existingProfitWithTitle = await 
             _profitRepository.FindByTitleAsync(profit.NameP);
         if (existingProfitWithTitle != null)
-            return new ProfitResponse("Crop title already exists.");
+            return new ProfitResponse("Profit name already exists.");
         try
         {
             // Add Tutorial
@@ -56,7 +56,7 @@ public class ProfitService : IProfitService
         catch (Exception e)
         {
             // Error Handling
-            return new ProfitResponse($"An error occurred when saving the category: {e.Message}");
+            return new ProfitResponse($"An error occurred when saving the profit: {e.Message}");
         }
     }
 
@@ -67,19 +67,19 @@ public class ProfitService : IProfitService
  
         // Validate Tutorial
         if (existingProfit == null)
-            return new ProfitResponse("Tutorial not found.");
+            return new ProfitResponse("Profit not found.");
         // Validate CategoryId
         var existingUser = await 
             _userRepository.FindByIdAsync(profit.UserId);
-        if (existingProfit == null)
-            return new ProfitResponse("Invalid Category");
+        if (existingUser == null)
+            return new ProfitResponse("Invalid User");
  
         // Validate Title
         var existingProfitWithTitle = await 
             _profitRepository.FindByTitleAsync(profit.NameP);
         if (existingProfitWithTitle != null && 
             existingProfitWithTitle.Id != existingProfit.Id)
-            return new ProfitResponse("Tutorial title already exists.");
+            return new ProfitResponse("Profit name already exists.");
  
         // Modify Fields
         existingProfit.NameP = profit.NameP;
@@ -96,7 +96,7 @@ public class ProfitService : IProfitService
         catch (Exception e)
         {
             // Error Handling
-            return new ProfitResponse($"An error occurred when updating the category: {e.Message}");
+            return new ProfitResponse($"An error occurred when updating the profit: {e.Message}");
         }
     }
 
@@ -107,7 +107,7 @@ public class ProfitService : IProfitService
  
         // Validate Tutorial
         if (existingProfit == null)
-            return new ProfitResponse("Tutorial not found.");
+            return new ProfitResponse("Profit not found.");
  
         try
         {
@@ -119,7 +119,7 @@ public class ProfitService : IProfitService
         catch (Exception e)
         {
             // Error Handling
-            return new ProfitResponse($"An error occurred when deleting the category: {e.Message}");
+            return new ProfitResponse($"An error occurred when deleting the profit: {e.Message}");
         }
     }
 }

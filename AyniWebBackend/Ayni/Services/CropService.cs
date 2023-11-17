@@ -41,7 +41,7 @@ public class CropService : ICropService
         var existingCropWithTitle = await 
             _cropRepository.FindByTitleAsync(crop.Name);
         if (existingCropWithTitle != null)
-            return new CropResponse("Crop title already exists.");
+            return new CropResponse("Crop name already exists.");
         try
         {
             // Add Tutorial
@@ -56,7 +56,7 @@ public class CropService : ICropService
         catch (Exception e)
         {
             // Error Handling
-            return new CropResponse($"An error occurred when saving the category: {e.Message}");
+            return new CropResponse($"An error occurred when saving the crop: {e.Message}");
         }
 
     }
@@ -68,7 +68,7 @@ public class CropService : ICropService
  
         // Validate Tutorial
         if (existingCrop == null)
-            return new CropResponse("Tutorial not found.");
+            return new CropResponse("crop not found.");
  
         // Modify Fields
         existingCrop.Name = crop.Name;
@@ -91,7 +91,7 @@ public class CropService : ICropService
         catch (Exception e)
         {
             // Error Handling
-            return new CropResponse($"An error occurred when updating the category: {e.Message}");
+            return new CropResponse($"An error occurred when updating the crop: {e.Message}");
         }
 
     }
@@ -103,7 +103,7 @@ public class CropService : ICropService
  
         // Validate Tutorial
         if (existingCrop == null)
-            return new CropResponse("Tutorial not found.");
+            return new CropResponse("Crop not found.");
  
         try
         {
@@ -115,7 +115,7 @@ public class CropService : ICropService
         catch (Exception e)
         {
             // Error Handling
-            return new CropResponse($"An error occurred when deleting the category: {e.Message}");
+            return new CropResponse($"An error occurred when deleting the crop: {e.Message}");
         }
 
     }
