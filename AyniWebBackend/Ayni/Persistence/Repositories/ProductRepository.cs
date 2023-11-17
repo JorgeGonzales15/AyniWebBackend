@@ -2,6 +2,7 @@ using AyniWebBackend.Ayni.Domain.Models;
 using AyniWebBackend.Ayni.Domain.Repositories;
 using AyniWebBackend.Shared.Persistence.Contexts;
 using AyniWebBackend.Shared.Persistence.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace AyniWebBackend.Ayni.Persistence.Repositories;
 
