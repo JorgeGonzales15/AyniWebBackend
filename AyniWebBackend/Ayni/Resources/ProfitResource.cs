@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Resources;
+
 namespace AyniWebBackend.Ayni.Resources;
 
 public class ProfitResource
@@ -7,5 +9,5 @@ public class ProfitResource
     public string DescriptionP { get; set; }
     public int AmountP { get; set; }
     
-    //public UserResource User { get; set; }
+    public UserResource User { get; set; }
 }

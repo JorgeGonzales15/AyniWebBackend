@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Resources;
+
 namespace AyniWebBackend.Ayni.Resources;
 
 public class CropResource
@@ -17,5 +19,5 @@ public class CropResource
     public string Season { get; set; }
     
     public string ImageUrl { get; set; }
-    //public UserResource User { get; set; }
+    public UserResource User { get; set; }
 }

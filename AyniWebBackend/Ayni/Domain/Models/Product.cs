@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Domain.Models;
+
 namespace AyniWebBackend.Ayni.Domain.Models;
 
 public class Product
@@ -13,4 +15,6 @@ public class Product
     public string ImageUrl { get; set; }
     
     public IList<Order> Orders { get; set; } = new List<Order>();
+    public IList<User> Users { get; set; } = new List<User>();
+
 }

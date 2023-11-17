@@ -33,7 +33,11 @@ public class OrderService : IOrderService
 
     public async Task<OrderResponse> SaveAsync(Order order)
     {
-        // Validate UserId
+        // Validate 
+        var existingProduct = await 
+            _productRepository.FindByIdAsync(order.ProductId);
+        if (existingProduct == null)
+            return new OrderResponse("Invalid Product");
         var existingUser = await 
             _userRepository.FindByIdAsync(order.UserId);
         if (existingUser == null)

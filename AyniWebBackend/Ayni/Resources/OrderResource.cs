@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Resources;
+
 namespace AyniWebBackend.Ayni.Resources;
 
 public class OrderResource
@@ -9,6 +11,6 @@ public class OrderResource
     public int TotalPrice { get; set; }
     public string PaymentMethod { get; set; }
     
-    //public UserResource User { get; set; }
+    public UserResource User { get; set; }
     public ProductResource Product { get; set; }
 }
