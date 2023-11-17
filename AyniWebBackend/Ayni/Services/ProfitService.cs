@@ -2,6 +2,7 @@ using AyniWebBackend.Ayni.Domain.Models;
 using AyniWebBackend.Ayni.Domain.Repositories;
 using AyniWebBackend.Ayni.Domain.Services;
 using AyniWebBackend.Ayni.Domain.Services.Communication;
+using AyniWebBackend.Security.Domain.Repositories;
 
 namespace AyniWebBackend.Ayni.Services;
 
