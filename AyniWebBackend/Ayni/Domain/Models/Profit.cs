@@ -1,3 +1,5 @@
+using AyniWebBackend.Security.Domain.Models;
+
 namespace AyniWebBackend.Ayni.Domain.Models;
 
 public class Profit
@@ -7,6 +9,6 @@ public class Profit
     public string DescriptionP { get; set; }
     public int AmountP { get; set; }
     
-    //public int UserId { get; set; }
-    //public User User { get; set; }
+    public int UserId { get; set; }
+    public User User { get; set; }
 }
